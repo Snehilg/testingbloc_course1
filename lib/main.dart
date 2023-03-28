@@ -79,12 +79,15 @@ class _HomePageState extends State<HomePage> {
             onPressed: () => cubit.pickRandomName(),
             child: const Text("Pick Name"),
           );
+
           switch (snapshot.connectionState) {
             case ConnectionState.none:
               return button;
+
             case ConnectionState.waiting:
               return button;
             //active state means listening state
+
             case ConnectionState.active:
               return Column(
                 children: [
@@ -92,6 +95,7 @@ class _HomePageState extends State<HomePage> {
                   button,
                 ],
               );
+
             //state will only be done once scaffold is closed
             //so code is never gonna reach here
             case ConnectionState.done:
